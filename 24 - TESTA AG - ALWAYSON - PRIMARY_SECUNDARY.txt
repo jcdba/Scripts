@@ -1,0 +1,14 @@
+DECLARE @role_desc varchar(20) IF(HAS_PERMS_BY_NAME ('sys.dm_hadr_availability_replica_states', 'OBJECT', 'execute') = 1) BEGIN -- if this is not an AG server then return 'PRIMARY'
+IF NOT EXISTS
+  (SELECT 1
+   FROM sys.DATABASES d
+   INNER JOIN sys.dm_hadr_availability_replica_states hars ON d.replica_id = hars.replica_id)
+SELECT @role_desc = 'PRIMARY' ELSE -- else return if there is AN PRIMARY availability group PRIMARY else 'SECONDARY
+IF EXISTS
+  (SELECT hars.role_desc
+   FROM sys.DATABASES d
+   INNER JOIN sys.dm_hadr_availability_replica_states hars ON d.replica_id = hars.replica_id 
+   WHERE hars.role_desc = 'PRIMARY' )
+SELECT @role_desc = 'PRIMARY' ELSE
+SELECT @role_desc = 'SECONDARY' END ELSE
+SELECT @role_desc = 'PRIMARY' IF @role_desc = 'PRIMARY' BEGIN PRINT 'AG OK' END ELSE RAISERROR (15600, -1, -1, 'mysp_CreateCustomer')

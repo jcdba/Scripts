@@ -1,0 +1,8 @@
+execute sp_msforeachdb '
+    use [?]
+    if db_id() not in (''1'',''2'',''3'',''4'')
+        begin
+            select * from sys.dm_db_persisted_sku_features
+        end
+    else
+        print ''Backup do banco ? ignorado.'''

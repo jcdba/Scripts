@@ -1,0 +1,5 @@
+--VERIFICA VERSÃO DO SERVICE PACK
+SELECT SERVERPROPERTY('ProductVersion')
+
+--CONFERE O LINK DE DOWNLOAD PARA ATUALIZAÇÃO
+https://buildnumbers.wordpress.com/sqlserver/

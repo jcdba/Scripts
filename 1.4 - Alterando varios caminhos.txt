@@ -1,0 +1,9 @@
+--Alterando varios caminhos
+--Atualizar WHERE conforme necessidade
+
+SELECT  'ALTER DATABASE', d.name, 'MODIFY FILE (NAME = ', mf.name, ',FILENAME = ''', mf.physical_name AS CurrentLocation, ''')' 
+FROM sys.master_files mf
+inner join  sys.databases d
+on mf.database_id = d.database_id
+WHERE d.name not in ('tempdb','master','msdb','model')
+and mf.type_desc = 'LOG'

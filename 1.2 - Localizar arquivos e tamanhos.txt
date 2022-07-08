@@ -1,0 +1,16 @@
+--Localizar arquivos e tamanhos
+SELECT database_id,
+ CONVERT(VARCHAR(25), DB.name) AS dbName,
+ CONVERT(VARCHAR(10), DATABASEPROPERTYEX(DB.name, 'status')) AS [Status],
+  (SELECT COUNT(1) FROM sys.master_files WHERE DB_NAME(database_id) = DB.name AND type_desc = 'rows') AS DataFiles,
+ (SELECT SUM((size*8)/1024) FROM sys.master_files WHERE DB_NAME(database_id) = DB.name AND type_desc = 'rows') AS [Data MB],
+ (SELECT COUNT(1) FROM sys.master_files WHERE DB_NAME(database_id) = DB.name AND type_desc = 'log') AS LogFiles,
+ (SELECT SUM((size*8)/1024) FROM sys.master_files WHERE DB_NAME(database_id) = DB.name AND type_desc = 'log') AS [Log MB],
+ b.filename,
+ recovery_model_desc AS [Recovery model]
+ FROM sys.databases DB
+ inner join sys.sysaltfiles b 
+ on DB.database_id = b.dbid 
+ where  b.filename like 'F%'
+ ORDER BY 5 desc--dbName, [Last backup] DESC, NAME
+ 

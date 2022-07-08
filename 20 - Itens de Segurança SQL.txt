@@ -1,0 +1,48 @@
+sp_configure 'show advanced options', 1;  
+RECONFIGURE;
+GO 
+
+--Verifica AD HOC DISBUTED QUERIES
+sp_configure 'Ad Hoc Distributed Queries'  
+RECONFIGURE;  
+GO  
+  
+--CLR ENABLED
+SP_CONFIGURE 'clr enabled'
+RECONFIGURE;  
+GO  
+
+--Cross DB Ownership Chaining 
+SP_CONFIGURE 'Cross DB Ownership Chaining'
+RECONFIGURE;  
+GO  
+
+--Database Mail XPs
+SP_CONFIGURE 'Database Mail XPs'
+RECONFIGURE;  
+GO  
+
+--OLE Automation Procedures 
+SP_CONFIGURE 'OLE Automation Procedures'
+RECONFIGURE;  
+GO  
+
+--remote access
+SP_CONFIGURE 'remote access'
+RECONFIGURE;  
+GO  
+
+--XP_CMDSHELL
+SP_CONFIGURE 'XP_CMDSHELL'
+RECONFIGURE;  
+GO 
+
+--Trustworthy
+SELECT database_id, [name], owner_sid, state_desc, is_trustworthy_on
+FROM sys.databases
+WHERE is_trustworthy_on = 1
+
+
+
+
+

@@ -1,0 +1,5 @@
+SELECT SERVERPROPERTY('IsClustered')
+go
+SELECT NodeName, status, status_description, is_current_owner   
+FROM sys.dm_os_cluster_nodes;  
+go

@@ -1,0 +1,43 @@
+USE [master]
+GO
+
+IF EXISTS (select 1 from sys.objects where name = 'BAD_INDEX_DB')
+	BEGIN
+		DROP TABLE [BAD_INDEX_DB]
+	END
+GO
+
+CREATE TABLE [dbo].[BAD_INDEX_DB](
+	[DATABASE] [nvarchar](128) NULL,
+	[OBJECT NAME] [nvarchar](128) NULL,
+	[INDEX NAME] [sysname] NULL,
+	[USER_SEEKS] [bigint] NOT NULL,
+	[USER_SCANS] [bigint] NOT NULL,
+	[USER_LOOKUPS] [bigint] NOT NULL,
+	[USER_UPDATES] [bigint] NOT NULL
+) ON [PRIMARY]
+GO
+
+EXEC master.sys.sp_MSforeachdb '
+USE [?]
+
+INSERT INTO MASTER..BAD_INDEX_DB 
+SELECT  DB_NAME([database_id]) AS [DATABASE], 
+OBJECT_NAME(S.[OBJECT_ID]) AS [OBJECT NAME],
+       I.[NAME] AS [INDEX NAME],
+       USER_SEEKS,
+       USER_SCANS,
+       USER_LOOKUPS,
+       USER_UPDATES
+       FROM   SYS.DM_DB_INDEX_USAGE_STATS AS S
+       INNER JOIN SYS.INDEXES AS I ON I.[OBJECT_ID] = S.[OBJECT_ID] AND I.INDEX_ID = S.INDEX_ID
+WHERE  OBJECTPROPERTY(S.[OBJECT_ID],''IsUserTable'') = 1
+       AND S.database_id = DB_ID()
+    AND user_seeks = 0
+  AND user_scans = 0
+  AND user_lookups = 0
+  ORDER BY USER_UPDATES DESC'
+
+  SELECT * FROM [BAD_INDEX_DB]
+
+  DROP TABLE [BAD_INDEX_DB]

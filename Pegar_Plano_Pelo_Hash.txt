@@ -1,0 +1,21 @@
+SELECT TOP 5 SUM(total_elapsed_time) total_elapsed_time,
+query_hash INTO #top_query_hashes FROM sys.dm_exec_query_stats AS qs
+GROUP BY qs.query_hash ORDER BY SUM(total_elapsed_time) DESC
+-- now get the first query from each of these
+SELECT tqh.total_elapsed_time, tqh.query_hash,
+(select top 1
+SUBSTRING(st.text, (qs.statement_start_offset/2)+1,
+((CASE qs.statement_end_offset
+WHEN -1 THEN DATALENGTH(st.text)
+ELSE qs.statement_end_offset
+END - qs.statement_start_offset)/2) + 1)
+from sys.dm_exec_query_stats qs cross apply sys.dm_exec_sql_text(qs.sql_handle) st
+where qs.query_hash = tqh.query_hash) as statement_text
+FROM #top_query_hashes tqh
+ORDER by tqh.total_elapsed_time desc
+drop table #top_query_hashes
+
+
+select * from sys.dm_exec_query_stats  qs
+CROSS APPLY sys.dm_exec_sql_text(qs.sql_handle) qt
+CROSS APPLY sys.dm_exec_query_plan(qs.plan_handle) qp where query_hash in (0x1F8FC7CC2CDD262A,0x17E68E2ED5ED00E7,0x3870501269F08A06,0x62A706DD97510EBF,0xF6A7373AA800B8BC)

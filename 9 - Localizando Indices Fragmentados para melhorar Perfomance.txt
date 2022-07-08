@@ -1,0 +1,46 @@
+
+--LOCALIZANDO INDICES FRAGMENTADOS PARA MELHORAR PERFOMANCE
+--INFORMAR BANCO QUE VÁ UTILIZAR
+
+SELECT --'ALTER INDEX', 
+SI.name AS [IndexName], 
+--' ON ',
+object_name(IPS.object_id) AS [TableName], 
+--'REBUILD;',
+   IPS.Index_type_desc, 
+   IPS.avg_fragmentation_in_percent, 
+   IPS.avg_fragment_size_in_pages, 
+   IPS.avg_page_space_used_in_percent, 
+   IPS.record_count, 
+   IPS.ghost_record_count,
+   IPS.fragment_count, 
+   IPS.avg_fragment_size_in_pages
+FROM sys.dm_db_index_physical_stats(db_id('dbPdAccount'), NULL, NULL, NULL , 'DETAILED') IPS
+   JOIN sys.tables ST WITH (nolock) ON IPS.object_id = ST.object_id
+   JOIN sys.indexes SI WITH (nolock) ON IPS.object_id = SI.object_id AND IPS.index_id = SI.index_id
+WHERE ST.is_ms_shipped = 0 AND IPS.avg_fragmentation_in_percent > '30'
+order by IPS.avg_fragment_size_in_pages desc
+
+/*	BOAS PRATICAS DE AUTO INDEX - INSTRUÇÃO CORRETIVA
+QUANDO O VALOR "avg_fragmentation_in_percent":
+
+MAIOR 5% e MENOR;IGUAL 30% ----> ALTER INDEX REORGANIZE
+MAIOR 30% --------> ALTER INDEX REBUILD WITH (ONLINE = ON)*/
+
+
+--REORGANIZAR INDICES DA TABELA
+ALTER INDEX ALL ON NOME_DA_TABELA REORGANIZE 
+Go
+
+--REORGANIZAR SOMENTE UM INDICE DA TABELA
+ALTER INDEX NOME_DO_INDICE ON NOME_DA_TABELA REORGANIZE 
+Go 
+
+--RECRIANDO TODOS OS INDICES DA TABELA
+ALTER INDEX ALL ON NOME_DA_TABELA REBUILD 
+Go 
+
+--RECRIANDO SOMENTE UM INDICE DA TABELA
+ALTER INDEX NOME_DO_INDICE ON NOME_DA_TABELA REBUILD 
+Go 
+ 

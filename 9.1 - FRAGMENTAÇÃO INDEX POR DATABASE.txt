@@ -1,0 +1,15 @@
+--FRAGMENTAÇÃO INDEX POR DATABASE
+select	--getdate(), 
+@@servername Nm_Server,  
+DB_NAME(db_id()) Nm_Database, 
+'''' Nm_Table,  
+B.Name Nm_Index,
+'''' Nm_Schema, 
+avg_fragmentation_in_percent, 
+page_count,fill_factor, 
+'''' data_compression,
+A.object_id,A.index_id
+from sys.dm_db_index_physical_stats(null, null, null, null, null) A
+join sys.indexes B on A.object_id = B.object_id and A.index_id = B.index_id
+where page_count > 1000
+and avg_fragmentation_in_percent > '30'

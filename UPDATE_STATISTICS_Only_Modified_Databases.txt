@@ -1,0 +1,55 @@
+USE [ab_cpagar]
+GO
+
+SELECT 
+SCHEMA_NAME([o].[schema_id]) AS [schema], [o].[name] as [TABLE],
+[s].[name] AS Statistic,
+[sp].[last_updated],
+[sp].[rows], 
+[sp].[rows_sampled], 
+[sp].[modification_counter] AS [Modifications]
+INTO #objs
+FROM 
+[sys].[stats] AS [s] inner join  sys.objects o 
+on s.object_id=o.object_id 
+left join sys.schemas sch 
+on o.schema_id=sch.schema_id 
+OUTER APPLY sys.dm_db_stats_properties ([s].[object_id],[s].[stats_id]) AS [sp] 
+where sch.name<>'sys' and [sp].[modification_counter] > '0'
+
+declare db_cursor cursor for 
+
+select 
+[Table],
+[schema]
+from #objs 
+/* removes rows with too few modifications */ 
+where [rows] > [rows_sampled] 
+order by [rows] desc,last_updated desc 
+
+open db_cursor   
+
+declare @name varchar(200)
+declare @schema varchar(200)
+declare @cmd nvarchar(max)
+
+fetch next from db_cursor into @name,@schema
+
+while @@fetch_status = 0 
+  
+begin  
+	
+	set @cmd='UPDATE STATISTICS ' +
+                      '[' + @schema + '].[' + @name + ']' +
+                      ' WITH FULLSCAN, PERSIST_SAMPLE_PERCENT = ON; '      
+	 print @cmd
+	 exec sp_executesql @cmd
+	  fetch next from db_cursor into @name,@schema
+end   
+
+close db_cursor   
+deallocate db_cursor
+
+DROP TABLE #objs
+
+
