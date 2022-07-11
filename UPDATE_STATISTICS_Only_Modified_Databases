@@ -1,4 +1,4 @@
-USE [ab_cpagar]
+USE [ABCIntegracao]
 GO
 
 SELECT 
@@ -15,7 +15,9 @@ on s.object_id=o.object_id
 left join sys.schemas sch 
 on o.schema_id=sch.schema_id 
 OUTER APPLY sys.dm_db_stats_properties ([s].[object_id],[s].[stats_id]) AS [sp] 
-where sch.name<>'sys' and [sp].[modification_counter] > '0'
+where sch.name<>'sys' 
+and [sp].[rows] > [sp].[rows_sampled] 
+and [sp].[modification_counter] > 1000 
 
 declare db_cursor cursor for 
 
@@ -51,6 +53,5 @@ close db_cursor
 deallocate db_cursor
 
 DROP TABLE #objs
-
 
 
