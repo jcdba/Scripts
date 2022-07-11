@@ -1,0 +1,37 @@
+--QUERY PARA COLETAR QUERIES COM CONVERT_IMPLICIT NO CACHE
+
+ --VERIFICANDO SE EXISTE TABELA E CRIANDO NOVA
+IF (OBJECT_ID('DBAs..QueryConvertImplicit') IS NOT NULL)
+		DROP TABLE DBAs..QueryConvertImplicit 
+		GO --APAGANDO TABELA POPULADA
+
+--CRIANDO NOVA TABELA
+CREATE TABLE DBAs..QueryConvertImplicit([DatabaseName] 
+		[nvarchar](128) NULL,
+        [Query_Text] [nvarchar](MAX) NULL,
+        [execution_count] [bigint] NOT NULL,
+        [query_plan] [xml] NULL) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY] 
+		GO 
+
+--INSERINDO DADOS NA TABELA
+INSERT INTO DBAs..QueryConvertImplicit(DatabaseName,
+                                        Query_Text,
+                                        execution_count,
+                                        query_plan)
+SELECT DB_NAME(sql_text.[dbid]) AS DatabaseName,
+       sql_text.text AS Query_Text,
+       query_stats.execution_count AS execution_count,
+       execution_plan.query_plan AS query_plan
+FROM sys.dm_exec_query_stats AS query_stats WITH (NOLOCK) 
+	CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS sql_text 
+	CROSS APPLY sys.dm_exec_query_plan(plan_handle) AS execution_plan
+WHERE CAST(query_plan AS VARCHAR(MAX)) LIKE ('%CONVERT_IMPLICIT%')
+	AND CAST(query_plan AS VARCHAR(MAX)) NOT LIKE '%CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS sql_text%'
+	AND execution_count > '100' 
+	and sql_text.text is not null
+	AND execution_plan.query_plan IS NOT NULL 
+-- ORDER BY avg_logical_reads DESC
+-- ORDER BY query_stats.total_logical_reads DESC -- logical reads
+-- ORDER BY query_stats.total_logical_writes DESC -- logical writes
+ORDER BY query_stats.total_worker_time DESC -- CPU time
+--order by execution_count DESC
