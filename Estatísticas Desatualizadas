@@ -1,0 +1,56 @@
+create table #Result_statistics (
+[Database] varchar(1000), 
+[schema] varchar(500),
+[table] varchar(500),
+[statistic] varchar(500),
+[last_updated] datetime,
+[rows] bigint,
+[rows_sampled] int,
+[modifications] bigint,
+[percent] bigint,
+[persist] bigint
+)
+
+declare db_cursor cursor for 
+select name from sys.databases where state_desc = 'online' and database_id > 4
+open db_cursor   
+
+declare @name varchar(200)
+declare @cmd nvarchar(max)
+
+fetch next from db_cursor into @name
+while @@fetch_status = 0 
+
+begin  
+
+    set @cmd='use [' + @name + '] ' + char (13) + char (10) +-- ' go' + char (13) + char (10) +
+                    'insert into #Result_statistics
+                    SELECT db_name(db_id()),
+                    SCHEMA_NAME([o].[schema_id]) AS [schema], [o].[name] as [TABLE],
+                    [s].[name] AS Statistic,
+                    [sp].[last_updated], 
+                    [sp].[rows], 
+                    [sp].[rows_sampled], 
+                    [sp].[modification_counter] AS [Modifications],
+                    (100 * [sp].[modification_counter])/[sp].[rows] AS [Percent],
+                    [persisted_sample_percent] as [persist]
+                    FROM 
+                    [sys].[stats] AS [s] inner join  sys.objects o 
+                    on s.object_id=o.object_id 
+                    left join sys.schemas sch 
+                    on o.schema_id=sch.schema_id 
+                    OUTER APPLY sys.dm_db_stats_properties ([s].[object_id],[s].[stats_id]) AS [sp] 
+                    where sch.name<>''sys'' '
+                 + char (13) + char (10) --+ ' go ' + char (13) + char (10)       
+     --print @cmd
+     exec sp_executesql @cmd
+      fetch next from db_cursor into @name
+end   
+
+close db_cursor   
+deallocate db_cursor
+
+select [database],count(*) as [QTD Estatísticas Fragmentada] from #Result_statistics
+where [rows] > [rows_sampled] and [Modifications] > 1000 
+group by [Database]
+order by [QTD Estatísticas Fragmentada]
