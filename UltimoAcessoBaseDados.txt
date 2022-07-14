@@ -1,4 +1,6 @@
-SELECT name [Banco de Dados], MAX(CAST(dt AS SMALLDATETIME)) [Último Acesso]
+SELECT name [Database], 
+ MAX(CAST(dt AS SMALLDATETIME)) [ultimo Acesso]
+ INTO #TesteAcesso
 FROM (
 	SELECT d.name, MAX(last_user_seek) DT1, MAX(last_user_scan) DT2
 		, MAX(last_user_lookup) DT3, MAX(last_user_update) DT4
@@ -11,4 +13,15 @@ FROM (
 	) P
 	UNPIVOT (dt FOR a IN (DT1, DT2, DT3, DT4, DT5)) AS UP
 GROUP BY name
-ORDER BY 2
+go
+SELECT 
+CONVERT(VARCHAR(25), DB.name) AS dbName,
+(SELECT SUM((size*8)/1024) FROM sys.master_files WHERE DB_NAME(database_id) = DB.name AND type_desc = 'rows') AS [Data MB],
+A.*
+FROM sys.databases DB
+inner join #TesteAcesso A
+ON DB.name = A.[Database]
+order by [ultimo Acesso], [Data MB] desc
+go
+
+drop table #TesteAcesso
