@@ -1,0 +1,3843 @@
+{
+    "zabbix_export": {
+        "version": "6.0",
+        "date": "2022-11-29T20:51:18Z",
+        "groups": [
+            {
+                "uuid": "e864bb07c9d54c3dbcd3606df1be0f66",
+                "name": "PRODUCAO-BD"
+            },
+            {
+                "uuid": "6fa9008ab367455189ecebc1ac721e31",
+                "name": "SQL SERVER"
+            }
+        ],
+        "templates": [
+            {
+                "uuid": "9896ec93c7714901b1268d42a9ca9f94",
+                "template": "BANCO DE DADOS",
+                "name": "BANCO DE DADOS",
+                "groups": [
+                    {
+                        "name": "PRODUCAO-BD"
+                    },
+                    {
+                        "name": "SQL SERVER"
+                    }
+                ],
+                "items": [
+                    {
+                        "uuid": "fe2d99e7fd1444eba453ab38758c15ae",
+                        "name": "SQL AGENT PRD - ONLINE",
+                        "key": "AGENTSQL_PRD",
+                        "delay": "30s",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "cc502fab75064e2893c2735ce7dd8462",
+                                "expression": "last(/BANCO DE DADOS/AGENTSQL_PRD)=0",
+                                "name": "SQL AGENT PRD",
+                                "priority": "DISASTER"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "a0b0f2646f2c43cc8c2027e595eea20b",
+                        "name": "SQL AGENT PRD01 - ONLINE",
+                        "key": "AGENTSQL_PRD01",
+                        "delay": "30s",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "25b7f614f38445208eb03180883dd27b",
+                                "expression": "last(/BANCO DE DADOS/AGENTSQL_PRD01)=0",
+                                "name": "SQL AGENT PRD01",
+                                "priority": "DISASTER"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "6065a09ee4924c21b04b66fae60d964e",
+                        "name": "SQL AGENT PRD02 - ONLINE",
+                        "key": "AGENTSQL_PRD02",
+                        "delay": "30s",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "d165515bf16f47f49be713311d1f3b46",
+                                "expression": "last(/BANCO DE DADOS/AGENTSQL_PRD02)=0",
+                                "name": "SQL AGENT PRD02",
+                                "priority": "DISASTER"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "b2f49354f00d4d4b8bc4fb9c503fbe48",
+                        "name": "SQL AGENT PRD03 - ONLINE",
+                        "key": "AGENTSQL_PRD03",
+                        "delay": "30s",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "b6babe00abfc438a9065baf4f9a8c0f6",
+                                "expression": "last(/BANCO DE DADOS/AGENTSQL_PRD03)=0",
+                                "name": "SQL AGENT PRD03",
+                                "priority": "DISASTER"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "ef2b5f32ae3945fe86cadbbfd1fb4caa",
+                        "name": "MSSQL$PRD01:Buffer Manager\\Lazy writes/sec",
+                        "key": "perf_counter[\"MSSQL$PRD01:Buffer Manager\\Lazy writes/sec\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "ec1707aaa53e419d8b1a88400f639dfc",
+                        "name": "MSSQL$PRD02:Buffer Manager\\Lazy writes/sec",
+                        "key": "perf_counter[\"MSSQL$PRD02:Buffer Manager\\Lazy writes/sec\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "c3421c2ead674941a60f3454ba9ee33e",
+                        "name": "MSSQL$PRD03:Buffer Manager\\Lazy writes/sec",
+                        "key": "perf_counter[\"MSSQL$PRD03:Buffer Manager\\Lazy writes/sec\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "2e403993136040a4844dc18aebd4515b",
+                        "name": "Cache\\Dirty Pages",
+                        "key": "perf_counter[\"\\Cache\\Dirty Pages\"]",
+                        "delay": "120",
+                        "value_type": "FLOAT",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "System"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "a20f578ae7ed4bc3bfb4e2b2d0400704",
+                        "name": "Cache\\Lazy Write Flushes/sec",
+                        "key": "perf_counter[\"\\Cache\\Lazy Write Flushes/sec\"]",
+                        "delay": "120",
+                        "value_type": "FLOAT",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "System"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "6b0c2af24d8b4385923cf8607bc6b3b7",
+                        "name": "Cluster Resources(_Total)\\Resource Failure",
+                        "key": "perf_counter[\"\\Cluster Resources(_Total)\\Resource Failure\"]",
+                        "delay": "20s",
+                        "value_type": "FLOAT",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Cluster"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "d6e4757b11f941cdafeac510eed6d7a0",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\Cluster Resources(_Total)\\Resource Failure\"])>=1",
+                                "name": "CLUSTER FAILURES",
+                                "priority": "HIGH"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "5db67df1be294bcba8d8d6f16c270ec8",
+                        "name": "Cluster Resources(_Total)\\Resources Online",
+                        "key": "perf_counter[\"\\Cluster Resources(_Total)\\Resources Online\"]",
+                        "delay": "2m",
+                        "value_type": "FLOAT",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Cluster"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "c1928a41ad1e4ccab379ce9e80347215",
+                        "name": "LogicalDisk(C:)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(C:)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "0cb09d95923d4d5c84d3fef21d346293",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(C:)\\% Free Space\"])<15",
+                                "name": "ALERTA DISCO C: - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "f4be4f34139b4483b930e4cd420c8960",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(C:)\\% Free Space\"])<5",
+                                "name": "ALERTA DISCO C: - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "1adf05b508094bf78e044e044d6c190b",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(C:)\\% Free Space\"])<10",
+                                "name": "ALERTA DISCO C: - HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "8aaafaeb7a2442f688093797cb28d77c",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(C:)\\% Free Space\"])<20",
+                                "name": "ALERTA DISCO C: - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "212be25e8856436ea0830094b7a9493c",
+                        "name": "LogicalDisk(C:)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(C:)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "87e0d46bb37b4ee388a3cff43c69fd9b",
+                        "name": "LogicalDisk(C:)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(C:)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "1d175c55db52412eb6f9ab841ce6ae3e",
+                        "name": "LogicalDisk(M:)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(M:)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "7ee698dbfb7243d18c97aa6592e0a687",
+                        "name": "LogicalDisk(M:)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(M:)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "d0d8ded2c8854abda4e3637566e6961f",
+                        "name": "LogicalDisk(M:)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(M:)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "2a548eaafc574e4cb0d1e73873afdf78",
+                        "name": "LogicalDisk(M:\\BufferPool)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(M:\\BufferPool)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "7eb17c5108984967b2bf40975ac2e648",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(M:\\BufferPool)\\% Free Space\"])<15",
+                                "name": "ALERTA DISCO M:\\BufferPool - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "f072d7e04d74475db28d047d8f5f123d",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(M:\\BufferPool)\\% Free Space\"])<5",
+                                "name": "ALERTA DISCO M:\\BufferPool - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "4a62546236a5462ca3e0f7059b95df9d",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(M:\\BufferPool)\\% Free Space\"])<10",
+                                "name": "ALERTA DISCO M:\\BufferPool - HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "c64b363b302e4cf1850c486a5a7d737e",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(M:\\BufferPool)\\% Free Space\"])<20",
+                                "name": "ALERTA DISCO M:\\BufferPool - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "5513d0af05ff41e1a74c9eddf4ebabf9",
+                        "name": "LogicalDisk(M:\\BufferPool)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(M:\\BufferPool)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "78c9fa11b68e42218e8c50caad6cfe43",
+                        "name": "LogicalDisk(M:\\BufferPool)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(M:\\BufferPool)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "MB",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "0fa4cffea77545afb1788c42afaeb8a0",
+                        "name": "LogicalDisk(M:\\FileStream)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(M:\\FileStream)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "ac0eb304dbe24bec80345015fb074ab2",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(M:\\FileStream)\\% Free Space\"])<15",
+                                "name": "ALERTA DISCO M:\\FileStream - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "09a75d9fffd44714b73e145e7ec87ccd",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(M:\\FileStream)\\% Free Space\"])<5",
+                                "name": "ALERTA DISCO M:\\FileStream - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "c9ba5015aa694bce816b69dfe68c524a",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(M:\\FileStream)\\% Free Space\"])<10",
+                                "name": "ALERTA DISCO M:\\FileStream - HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "4930128f3a164c7d98b5a16a590be04b",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(M:\\FileStream)\\% Free Space\"])<20",
+                                "name": "ALERTA DISCO M:\\FileStream - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "96bb903c79dd4b2697a90bc95964664d",
+                        "name": "LogicalDisk(M:\\FileStream)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(M:\\FileStream)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "2ebbb4646af04785bb0cedf3286e4430",
+                        "name": "LogicalDisk(M:\\FileStream)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(M:\\FileStream)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "MB",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "533d76ca6e6243ce85c6affd29faeae0",
+                        "name": "LogicalDisk(M:\\SQLDATA_1)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(M:\\SQLDATA_1)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "a3e5276882894ad5876324cdf3c5fe50",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(M:\\SQLDATA_1)\\% Free Space\"])<15",
+                                "name": "ALERTA DISCO M:\\SQLDATA_1 - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "3f45c79637c544c9b8b356ce6208b35d",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(M:\\SQLDATA_1)\\% Free Space\"])<5",
+                                "name": "ALERTA DISCO M:\\SQLDATA_1 - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "8944fbb84fdf416182578e2c3e164890",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(M:\\SQLDATA_1)\\% Free Space\"])<10",
+                                "name": "ALERTA DISCO M:\\SQLDATA_1 - HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "f36a7ed8c3ed4488b2d7980f2a1b7887",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(M:\\SQLDATA_1)\\% Free Space\"])<20",
+                                "name": "ALERTA DISCO M:\\SQLDATA_1 - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "12109eecebd446d9a85c7d417edb31ce",
+                        "name": "LogicalDisk(M:\\SQLDATA_1)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(M:\\SQLDATA_1)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "f134c1f071324d7fabc40297cf28c186",
+                        "name": "LogicalDisk(M:\\SQLDATA_1)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(M:\\SQLDATA_1)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "MB",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "324827285eef4aad9dd523e4443e6915",
+                        "name": "LogicalDisk(M:\\SQLLOG_1)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(M:\\SQLLOG_1)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "b0b3e11039b349e9903eafe6fb9d9c92",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(M:\\SQLLOG_1)\\% Free Space\"])<15",
+                                "name": "ALERTA DISCO M:\\SQLLOG_1 - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "952e7c198af340fa9441e452c214f583",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(M:\\SQLLOG_1)\\% Free Space\"])<5",
+                                "name": "ALERTA DISCO M:\\SQLLOG_1 - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "4a9153c8c2904b918e00d85f6fc43811",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(M:\\SQLLOG_1)\\% Free Space\"])<10",
+                                "name": "ALERTA DISCO M:\\SQLLOG_1 - HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "e1e3d29f904a41179da9c5e39e19a23b",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(M:\\SQLLOG_1)\\% Free Space\"])<20",
+                                "name": "ALERTA DISCO M:\\SQLLOG_1 - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "61f27b756398448aa10a614705521331",
+                        "name": "LogicalDisk(M:\\SQLLOG_1)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(M:\\SQLLOG_1)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "1d97f36bf7754508b4b09ba63d089f45",
+                        "name": "LogicalDisk(M:\\SQLLOG_1)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(M:\\SQLLOG_1)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "MB",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "6cfbfaf27f574c7ba4f685c267d2c807",
+                        "name": "LogicalDisk(M:\\SQLSYS)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(M:\\SQLSYS)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "9940ad7403104e1991ddfaad66bd908f",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(M:\\SQLSYS)\\% Free Space\"])<15",
+                                "name": "ALERTA DISCO M:\\SQLSYS - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "dfdb1b434b404396bbb0e3844cfa7c2e",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(M:\\SQLSYS)\\% Free Space\"])<5",
+                                "name": "ALERTA DISCO M:\\SQLSYS - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "8de43a5862a94cc7a337565298c60d3e",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(M:\\SQLSYS)\\% Free Space\"])<10",
+                                "name": "ALERTA DISCO M:\\SQLSYS - HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "8559596f23a34522b852b88f8195696f",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(M:\\SQLSYS)\\% Free Space\"])<20",
+                                "name": "ALERTA DISCO M:\\SQLSYS - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "ba161f72bcd841a2a6d4892a8bbd1e2b",
+                        "name": "LogicalDisk(M:\\SQLSYS)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(M:\\SQLSYS)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "6a1be07dce6e4715a3ef6a71f2989948",
+                        "name": "LogicalDisk(M:\\SQLSYS)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(M:\\SQLSYS)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "MB",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "6fcf2cf90fb9456f99876c0bfbf14a76",
+                        "name": "LogicalDisk(M:\\TEMPDB)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(M:\\TEMPDB)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "4edd6ce746974841889fcd2a69863f38",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(M:\\TEMPDB)\\% Free Space\"])<15",
+                                "name": "ALERTA DISCO M:\\TEMPDB - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "e2f141bb93474afabe037db7b77731fb",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(M:\\TEMPDB)\\% Free Space\"])<10",
+                                "name": "ALERTA DISCO M:\\TEMPDB - HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "8652b25627814daabc52c248aeea5f3e",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(M:\\TEMPDB)\\% Free Space\"])<20",
+                                "name": "ALERTA DISCO M:\\TEMPDB - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "02058f5905ef486d86ecdc335d22cd54",
+                        "name": "LogicalDisk(M:\\TEMPDB)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(M:\\TEMPDB)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "bb21d054446f4322b698f82bad271883",
+                        "name": "LogicalDisk(M:\\TEMPDB)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(M:\\TEMPDB)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "MB",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "ac6b12bb829545ab8ef86dfa6b3f5bd0",
+                        "name": "LogicalDisk(N:)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(N:)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "040047491daf4f65aa2a82d77b2b673a",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:)\\% Free Space\"])<15",
+                                "name": "ALERTA DISCO N: - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "81625aceb6bb4a12beae9365af938138",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:)\\% Free Space\"])<5",
+                                "name": "ALERTA DISCO N: - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "25824b4b9a684eafa3a9cd8c34abf5e7",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:)\\% Free Space\"])<10",
+                                "name": "ALERTA DISCO N: - HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "3c638338cbfc4aab91c9073e0ef4ab35",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:)\\% Free Space\"])<20",
+                                "name": "ALERTA DISCO N: - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "db6b706d07434cdc99b303fa203a7f5e",
+                        "name": "LogicalDisk(N:)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(N:)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "53b3d794fb7f48679e7736b9b4f73ee8",
+                        "name": "LogicalDisk(N:)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(N:)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "4aea04d39f2b4c1dabb4daab3816f600",
+                        "name": "LogicalDisk(N:\\BufferPool)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(N:\\BufferPool)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "d2d43d742e0e41a3bda959b2446e1778",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:\\BufferPool)\\% Free Space\"])<15",
+                                "name": "ALERTA DISCO N:\\BufferPool - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "825a653e0bba442db27ca08d2bd0389d",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:\\BufferPool)\\% Free Space\"])<5",
+                                "name": "ALERTA DISCO N:\\BufferPool - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "fe9009f42c80447d8cb1533610ed4cf7",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:\\BufferPool)\\% Free Space\"])<10",
+                                "name": "ALERTA DISCO N:\\BufferPool - HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "4db93183e0c9488cb812384edd02f5a6",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:\\BufferPool)\\% Free Space\"])<20",
+                                "name": "ALERTA DISCO N:\\BufferPool - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "5ba48af4fd344b98944b759feb9727a2",
+                        "name": "LogicalDisk(N:\\BufferPool)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(N:\\BufferPool)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "70e2481232594c82bc4dad2503f7cf4f",
+                        "name": "LogicalDisk(N:\\BufferPool)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(N:\\BufferPool)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "b2e3a37953d94528ab5dace40e8ded4d",
+                        "name": "LogicalDisk(N:\\FileStream)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(N:\\FileStream)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "1a5033d4a8cf4dc192ba5fd37c5c733f",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:\\FileStream)\\% Free Space\"])<15",
+                                "name": "ALERTA DISCO N:\\FileStream - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "9287547057d64899acc3e2dd9793ecd2",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:\\FileStream)\\% Free Space\"])<5",
+                                "name": "ALERTA DISCO N:\\FileStream - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "eedb22e1680c46b08c3a3f73e603e30b",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:\\FileStream)\\% Free Space\"])<10",
+                                "name": "ALERTA DISCO N:\\FileStream - HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "24cd40cffbe1452f8b60694c14ebe9e8",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:\\FileStream)\\% Free Space\"])<20",
+                                "name": "ALERTA DISCO N:\\FileStream - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "035bb45cf92548ebbf1c5b126b4f3135",
+                        "name": "LogicalDisk(N:\\FileStream)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(N:\\FileStream)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "404b9afda9c240f49342693e423904ea",
+                        "name": "LogicalDisk(N:\\FileStream)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(N:\\FileStream)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "MB",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "88800efbae6c4381b2b4e8a9403d9e23",
+                        "name": "LogicalDisk(N:\\SQLDATA_1)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(N:\\SQLDATA_1)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "689531b7db2f40d2ac08fa4abeb5b705",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:\\SQLDATA_1)\\% Free Space\"])<15",
+                                "name": "ALERTA DISCO N:\\SQLDATA_1 - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "3e8cb3e82e7745e38cdfd2ac4d1d1193",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:\\SQLDATA_1)\\% Free Space\"])<10",
+                                "name": "ALERTA DISCO N:\\SQLDATA_1 - HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "83e47b40491c48ec82847f427ded3b85",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:\\SQLDATA_1)\\% Free Space\"])<20",
+                                "name": "ALERTA DISCO N:\\SQLDATA_1 - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "8c81c44a0867466e91e7d0c930d17082",
+                        "name": "LogicalDisk(N:\\SQLDATA_1)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(N:\\SQLDATA_1)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "e51f27e7a2e14d6b8908535c80a0e43e",
+                        "name": "LogicalDisk(N:\\SQLDATA_1)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(N:\\SQLDATA_1)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "MB",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "234d672b56c64caaaf41a481b9b9d745",
+                        "name": "LogicalDisk(N:\\SQLLOG_1)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(N:\\SQLLOG_1)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "9a280f2fab634c8bbc97b1f374b41fc0",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:\\SQLLOG_1)\\% Free Space\"])<15",
+                                "name": "ALERTA DISCO N:\\SQLLOG_1 - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "3d3e050ec13d4abdb85378f0137d0106",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:\\SQLLOG_1)\\% Free Space\"])<5",
+                                "name": "ALERTA DISCO N:\\SQLLOG_1 - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "c604b04f323748ed9bc2a9c91f23d073",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:\\SQLLOG_1)\\% Free Space\"])<10",
+                                "name": "ALERTA DISCO N:\\SQLLOG_1 - HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "5061c49b0bc248d1a530492606898397",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:\\SQLLOG_1)\\% Free Space\"])<20",
+                                "name": "ALERTA DISCO N:\\SQLLOG_1 - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "8ab3cc82713c4bec96e13fbc3a37ec77",
+                        "name": "LogicalDisk(N:\\SQLLOG_1)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(N:\\SQLLOG_1)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "4ec38173ceae40b59ad7d194438da9f3",
+                        "name": "LogicalDisk(N:\\SQLLOG_1)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(N:\\SQLLOG_1)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "MB",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "89f2cccc5f414089b6c619448994afbb",
+                        "name": "LogicalDisk(N:\\SQLSYS)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(N:\\SQLSYS)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "87ce62f33ca64561a02d820a4f951851",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:\\SQLSYS)\\% Free Space\"])<15",
+                                "name": "ALERTA DISCO N:\\SQLSYS - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "7d5910ae30e846c197039a9bc2f9b5a3",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:\\SQLSYS)\\% Free Space\"])<5",
+                                "name": "ALERTA DISCO N:\\SQLSYS - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "27048d68b1624b279bba8646e6e26917",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:\\SQLSYS)\\% Free Space\"])<10",
+                                "name": "ALERTA DISCO N:\\SQLSYS - HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "0f128b93913e423081bb53283adc6c3a",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:\\SQLSYS)\\% Free Space\"])<20",
+                                "name": "ALERTA DISCO N:\\SQLSYS - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "83756703fac64622a7a44acfa0c9dcd3",
+                        "name": "LogicalDisk(N:\\SQLSYS)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(N:\\SQLSYS)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "b359c507bfcb4657aad72fde35760144",
+                        "name": "LogicalDisk(N:\\SQLSYS)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(N:\\SQLSYS)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "MB",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "9411a3061e0c4253a0ac20c32bc69fbf",
+                        "name": "LogicalDisk(N:\\TEMPDB)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(N:\\TEMPDB)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "89f71323fec94520829d0f45c5312651",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:\\TEMPDB)\\% Free Space\"])<15",
+                                "name": "ALERTA DISCO N:\\TEMPDB - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "8f46e38da7704676bce06623c146247a",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:\\TEMPDB)\\% Free Space\"])<5",
+                                "name": "ALERTA DISCO N:\\TEMPDB - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "c5cd374960934234aedb368a2fff4492",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:\\TEMPDB)\\% Free Space\"])<10",
+                                "name": "ALERTA DISCO N:\\TEMPDB - HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "0aca0a02b57f45459c3005cd3737464f",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(N:\\TEMPDB)\\% Free Space\"])<20",
+                                "name": "ALERTA DISCO N:\\TEMPDB - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "9bff5ed6a39f441c95d1c47b8ad725ac",
+                        "name": "LogicalDisk(N:\\TEMPDB)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(N:\\TEMPDB)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "247c9d12a7854a559dd5f25ca2d8040e",
+                        "name": "LogicalDisk(N:\\TEMPDB)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(N:\\TEMPDB)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "60b87df5e9874836ab9d9b0a38495ae3",
+                        "name": "LogicalDisk(O:)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(O:)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "2e7f23350bd54606ab9abd4661681883",
+                        "name": "LogicalDisk(O:)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(O:)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "a3ef9dcd5d054a06bdbb912ca9be4b7d",
+                        "name": "LogicalDisk(O:)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(O:)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "f105580bde2e487da89a1bcb0a53c6d2",
+                        "name": "LogicalDisk(O:\\BufferPool)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(O:\\BufferPool)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "c394166267c5457b83a04188b4a32f1a",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(O:\\BufferPool)\\% Free Space\"])<15",
+                                "name": "ALERTA DISCO O:\\BufferPool - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "d8bc1af5f5974c0ea1a457b31eccaeb9",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(O:\\BufferPool)\\% Free Space\"])<5",
+                                "name": "ALERTA DISCO O:\\BufferPool - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "4ecdb6eed2e049098e772348387be8e2",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(O:\\BufferPool)\\% Free Space\"])<10",
+                                "name": "ALERTA DISCO O:\\BufferPool - HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "a1306660317d42b0971a9b4bbe4bc175",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(O:\\BufferPool)\\% Free Space\"])<20",
+                                "name": "ALERTA DISCO O:\\BufferPool - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "a4dcbf377625476bbc154f468164f44e",
+                        "name": "LogicalDisk(O:\\BufferPool)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(O:\\BufferPool)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "63785742062b44cf873bf78114f81acb",
+                        "name": "LogicalDisk(O:\\BufferPool)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(O:\\BufferPool)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "f292c64de0054fcea7875e39f87a6d34",
+                        "name": "LogicalDisk(O:\\FileStream)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(O:\\FileStream)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "4fa0f451637c401ea9217bfb3477f5a8",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(O:\\FileStream)\\% Free Space\"])<15",
+                                "name": "ALERTA DISCO O:\\FileStream - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "606fbf3f4ec04d47bd8822f82d889db7",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(O:\\FileStream)\\% Free Space\"])<5",
+                                "name": "ALERTA DISCO O:\\FileStream - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "62ca376ebb4e4fb29c741be7bca8105c",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(O:\\FileStream)\\% Free Space\"])<10",
+                                "name": "ALERTA DISCO O:\\FileStream - HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "f8702ca0621a421382d07a1204326b39",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(O:\\FileStream)\\% Free Space\"])<20",
+                                "name": "ALERTA DISCO O:\\FileStream - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "acfc709fa1f74c67a06601b9abed739f",
+                        "name": "LogicalDisk(O:\\FileStream)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(O:\\FileStream)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "c60effaff9d74a64baa3ae2c7a8e3073",
+                        "name": "LogicalDisk(O:\\FileStream)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(O:\\FileStream)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "ba4ab4eceee743428936739c2bfdcdbd",
+                        "name": "LogicalDisk(O:\\SQLDATA_1)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(O:\\SQLDATA_1)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "d9a3bc166e4b4db6b5fb47bc58748fff",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(O:\\SQLDATA_1)\\% Free Space\"])<15",
+                                "name": "ALERTA DISCO O:\\SQLDATA_1 - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "8e0d1dafb09a42f7af208facb57a42aa",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(O:\\SQLDATA_1)\\% Free Space\"])<5",
+                                "name": "ALERTA DISCO O:\\SQLDATA_1 - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "1febee40012549e2990042649958a5f6",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(O:\\SQLDATA_1)\\% Free Space\"])<10",
+                                "name": "ALERTA DISCO O:\\SQLDATA_1 - HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "92f310eb9b6d4c799d37b8cf9d07fe05",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(O:\\SQLDATA_1)\\% Free Space\"])<20",
+                                "name": "ALERTA DISCO O:\\SQLDATA_1 - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "f89c35100ec7488c8973ed1218cbd8d9",
+                        "name": "LogicalDisk(O:\\SQLDATA_1)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(O:\\SQLDATA_1)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "f18f0389f8a04c8889d52e68e892f9fa",
+                        "name": "LogicalDisk(O:\\SQLDATA_1)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(O:\\SQLDATA_1)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "ae5af81768a74730a06a483311dbd4d9",
+                        "name": "LogicalDisk(O:\\SQLLOG_1)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(O:\\SQLLOG_1)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "713deceac1c748f18c311e542b0469e2",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(O:\\SQLLOG_1)\\% Free Space\"])<15",
+                                "name": "ALERTA DISCO O:\\SQLLOG_1 - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "a8b13ec1f64d440c93198effa8045093",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(O:\\SQLLOG_1)\\% Free Space\"])<5",
+                                "name": "ALERTA DISCO O:\\SQLLOG_1 - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "62c44549c237467bab7c5cf5dbcb9a0d",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(O:\\SQLLOG_1)\\% Free Space\"])<10",
+                                "name": "ALERTA DISCO O:\\SQLLOG_1 - HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "95aced7039cd4c42ac383b53ece6a2e0",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(O:\\SQLLOG_1)\\% Free Space\"])<20",
+                                "name": "ALERTA DISCO O:\\SQLLOG_1 - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "c8a68ca9cdf442c8b5f649a24edd754d",
+                        "name": "LogicalDisk(O:\\SQLLOG_1)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(O:\\SQLLOG_1)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "4026f2360af043c8947fbb0588b50493",
+                        "name": "LogicalDisk(O:\\SQLLOG_1)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(O:\\SQLLOG_1)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "9e5a4faffb9045c6aaf04c78cf96976d",
+                        "name": "LogicalDisk(O:\\SQLSYS)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(O:\\SQLSYS)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "727eee7bd9b44b8abbb55e58753efc65",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(O:\\SQLSYS)\\% Free Space\"])<15",
+                                "name": "ALERTA DISCO O:\\SQLSYS - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "aecf29e02e8346478a095d6deabfe619",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(O:\\SQLSYS)\\% Free Space\"])<5",
+                                "name": "ALERTA DISCO O:\\SQLSYS - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "d1a81f47aebf467ab9c4e76cf3bc0f87",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(O:\\SQLSYS)\\% Free Space\"])<10",
+                                "name": "ALERTA DISCO O:\\SQLSYS - HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "c4634b6056ba44ababa01cfdd521edd4",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(O:\\SQLSYS)\\% Free Space\"])<20",
+                                "name": "ALERTA DISCO O:\\SQLSYS - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "9891ecb3e3254c8698ab6240b17b7343",
+                        "name": "LogicalDisk(O:\\SQLSYS)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(O:\\SQLSYS)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "1fecbad6ef0e4504900d722bc0bdc12b",
+                        "name": "LogicalDisk(O:\\SQLSYS)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(O:\\SQLSYS)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "c044b0e71a1e4d309bdc286b2c576551",
+                        "name": "LogicalDisk(O:\\TEMPDB)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(O:\\TEMPDB)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "88c75348c77440d1ba5ecbcd1404c116",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(O:\\TEMPDB)\\% Free Space\"])<15",
+                                "name": "ALERTA DISCO O:\\TEMPDB - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "ec3395596ec246cc877ed2c141579b0c",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(O:\\TEMPDB)\\% Free Space\"])<5",
+                                "name": "ALERTA DISCO O:\\TEMPDB - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "b001a183e1da4a34a5f0871c54c44daa",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(O:\\TEMPDB)\\% Free Space\"])<10",
+                                "name": "ALERTA DISCO O:\\TEMPDB - HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "30b26cf3ea914288bead71e1d7ed6e33",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(O:\\TEMPDB)\\% Free Space\"])<20",
+                                "name": "ALERTA DISCO O:\\TEMPDB - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "e9c9e45b758247d3abbb3fd4800f8f45",
+                        "name": "LogicalDisk(O:\\TEMPDB)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(O:\\TEMPDB)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "0a1fbd2524cd46488729b9ea9922c532",
+                        "name": "LogicalDisk(O:\\TEMPDB)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(O:\\TEMPDB)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "b0633854ef2747559940244e51015f8a",
+                        "name": "LogicalDisk(P:)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(P:)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "fab639c4b9a642d789d0bbc38e366461",
+                        "name": "LogicalDisk(P:)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(P:)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "2ea158b8f3c54115a8952e54911525b5",
+                        "name": "LogicalDisk(P:)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(P:)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "2c75e91bab4e48b6af34af910bde54cf",
+                        "name": "LogicalDisk(P:\\BufferPool)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(P:\\BufferPool)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "a4c257e18e3f4c8b81803590d09e2188",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(P:\\BufferPool)\\% Free Space\"])<15",
+                                "name": "ALERTA DISCO P:\\BufferPool - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "30410eb5f0d84f418b4f7a7381a0a441",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(P:\\BufferPool)\\% Free Space\"])<5",
+                                "name": "ALERTA DISCO P:\\BufferPool - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "3278526e3fc8483db2ca77647b7913d5",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(P:\\BufferPool)\\% Free Space\"])<10",
+                                "name": "ALERTA DISCO P:\\BufferPool - HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "bfa8e9cdb2f5489eacf81e8ca341795b",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(P:\\BufferPool)\\% Free Space\"])<20",
+                                "name": "ALERTA DISCO P:\\BufferPool - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "2d960d6cc2e840f396e7f2c55f44c45b",
+                        "name": "LogicalDisk(P:\\BufferPool)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(P:\\BufferPool)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "c62f131abb4a43d3889126331667565a",
+                        "name": "LogicalDisk(P:\\BufferPool)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(P:\\BufferPool)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "576e410ea8564a5c9e27498be4489675",
+                        "name": "LogicalDisk(P:\\FileStream)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(P:\\FileStream)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "147b9b597cdd4001860c077fe87b6174",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(P:\\FileStream)\\% Free Space\"])<15",
+                                "name": "ALERTA DISCO P:\\FileStream - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "e132ec4646ac4246ac63ffb458fb18f0",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(P:\\FileStream)\\% Free Space\"])<5",
+                                "name": "ALERTA DISCO P:\\FileStream - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "29e60528afd347839f9dc88982f6491b",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(P:\\FileStream)\\% Free Space\"])<10",
+                                "name": "ALERTA DISCO P:\\FileStream - HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "9d0c9ae892714fdab75dbbaf02e61867",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(P:\\FileStream)\\% Free Space\"])<20",
+                                "name": "ALERTA DISCO P:\\FileStream - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "05497fcd4f71439cb3c71eed36872590",
+                        "name": "LogicalDisk(P:\\FileStream)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(P:\\FileStream)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "b0959954be3a47cc9d7686b3d39ef6ed",
+                        "name": "LogicalDisk(P:\\FileStream)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(P:\\FileStream)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "efeecfdae8e44c8095d9d7d132cf2d54",
+                        "name": "LogicalDisk(P:\\SQLDATA_1)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(P:\\SQLDATA_1)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "730040fb935a4355a3f33b57f4617999",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(P:\\SQLDATA_1)\\% Free Space\"])<15",
+                                "name": "ALERTA DISCO P:\\SQLDATA_1 - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "0e316b362321464ebbb7b03aa386718f",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(P:\\SQLDATA_1)\\% Free Space\"])<5",
+                                "name": "ALERTA DISCO P:\\SQLDATA_1 - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "3717d0dd7dfc4bc08a30241e8fba1a01",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(P:\\SQLDATA_1)\\% Free Space\"])<10",
+                                "name": "ALERTA DISCO P:\\SQLDATA_1 - HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "39409789a01d4f868f32d5d88b944e78",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(P:\\SQLDATA_1)\\% Free Space\"])<20",
+                                "name": "ALERTA DISCO P:\\SQLDATA_1 - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "d93e63a4d09f4e62bf5abc2637a9ffca",
+                        "name": "LogicalDisk(P:\\SQLDATA_1)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(P:\\SQLDATA_1)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "5ffb54cf99d140d293f0fb2be7f29d26",
+                        "name": "LogicalDisk(P:\\SQLDATA_1)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(P:\\SQLDATA_1)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "MB",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "000909a1feaf4bf9b1879727af31e706",
+                        "name": "LogicalDisk(P:\\SQLLOG_1)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(P:\\SQLLOG_1)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "db5f62f9cfb34d04b455efaae8bf4f5d",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(P:\\SQLLOG_1)\\% Free Space\"])<15",
+                                "name": "ALERTA DISCO P:\\SQLLOG_1 - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "db540c94b9894363bf5927ccc16ce3af",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(P:\\SQLLOG_1)\\% Free Space\"])<5",
+                                "name": "ALERTA DISCO P:\\SQLLOG_1 - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "e481c481706e4f17a016f3be38849262",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(P:\\SQLLOG_1)\\% Free Space\"])<20",
+                                "name": "ALERTA DISCO P:\\SQLLOG_1 - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "bd1acbc56f1447c7a5d09b4457147ae9",
+                        "name": "LogicalDisk(P:\\SQLLOG_1)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(P:\\SQLLOG_1)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "3662b479d8a949728fb7004452bfecb7",
+                        "name": "LogicalDisk(P:\\SQLLOG_1)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(P:\\SQLLOG_1)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "MB",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "240cd3ef5c7a4ce9a8ec92c6d66c359e",
+                        "name": "LogicalDisk(P:\\SQLSYS)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(P:\\SQLSYS)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "14f0984b625b4324b3060ac5e0a30eaf",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(P:\\SQLSYS)\\% Free Space\"])<15",
+                                "name": "ALERTA DISCO P:\\SQLSYS - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "fafba3d0f4cb499185bdc8c99c7a9f1a",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(P:\\SQLSYS)\\% Free Space\"])<5",
+                                "name": "ALERTA DISCO P:\\SQLSYS - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "80f2b5a4fb8649678006e4712657ad17",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(P:\\SQLSYS)\\% Free Space\"])<10",
+                                "name": "ALERTA DISCO P:\\SQLSYS - HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "de52c2c4f33d47bfaa0172200df8cf23",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(P:\\SQLSYS)\\% Free Space\"])<20",
+                                "name": "ALERTA DISCO P:\\SQLSYS - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "e01e4296c5b2402fb86f2c94d421dbe3",
+                        "name": "LogicalDisk(P:\\SQLSYS)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(P:\\SQLSYS)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "380896596c1d46aaa3477ba9f266d1fe",
+                        "name": "LogicalDisk(P:\\SQLSYS)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(P:\\SQLSYS)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "MB",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "252424bcdbc14540a29a739524b68fcd",
+                        "name": "LogicalDisk(P:\\TEMPDB)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(P:\\TEMPDB)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "447a187c7bb44b25bb174f710c6bc887",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(P:\\TEMPDB)\\% Free Space\"])<15",
+                                "name": "ALERTA DISCO P:\\TEMPDB - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "130155f974d5473a8f1b333117f88163",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(P:\\TEMPDB)\\% Free Space\"])<5",
+                                "name": "ALERTA DISCO P:\\TEMPDB - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "8897153aa82d4926a22b3106d57e1a36",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(P:\\TEMPDB)\\% Free Space\"])<10",
+                                "name": "ALERTA DISCO P:\\TEMPDB - HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "7f268133acea444d9806b79eac4d1428",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\LogicalDisk(P:\\TEMPDB)\\% Free Space\"])<20",
+                                "name": "ALERTA DISCO P:\\TEMPDB - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "22ff6609e4bd44d5b485c7a97e10b733",
+                        "name": "LogicalDisk(P:\\TEMPDB)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(P:\\TEMPDB)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "7f806d9afd7f48de8d96bade5fceac43",
+                        "name": "LogicalDisk(P:\\TEMPDB)\\Free Megabytes",
+                        "key": "perf_counter[\"\\LogicalDisk(P:\\TEMPDB)\\Free Megabytes\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "MB",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "41777465ddca40daac7f52d5874a021c",
+                        "name": "LogicalDisk(_Total)\\% Free Space",
+                        "key": "perf_counter[\"\\LogicalDisk(_Total)\\% Free Space\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "a8f6d95132664a6d89200bf5e8908841",
+                        "name": "LogicalDisk(_Total)\\Current Disk Queue Length",
+                        "key": "perf_counter[\"\\LogicalDisk(_Total)\\Current Disk Queue Length\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Disk"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "12e8f8f7870d4f06b2957d538ed205bf",
+                        "name": "MSSQL$PRD01:Buffer Manager\\Checkpoint pages/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD01:Buffer Manager\\Checkpoint pages/sec\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "b2c153787bcc492cbe054516c3f55af5",
+                        "name": "MSSQL$PRD01:Buffer Manager\\Database pages",
+                        "key": "perf_counter[\"\\MSSQL$PRD01:Buffer Manager\\Database pages\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "bcc39f0dbee54d7bad6b1c8b9fcd5c63",
+                        "name": "MSSQL$PRD01:Buffer Manager\\Extension allocated pages",
+                        "key": "perf_counter[\"\\MSSQL$PRD01:Buffer Manager\\Extension allocated pages\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "9a8ade945fee40609a70787b9400bb73",
+                        "name": "MSSQL$PRD01:Buffer Manager\\Extension free pages",
+                        "key": "perf_counter[\"\\MSSQL$PRD01:Buffer Manager\\Extension free pages\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "154ce87f328e406f93e7520a5d4a601a",
+                        "name": "MSSQL$PRD01:Buffer Manager\\Page life expectancy",
+                        "key": "perf_counter[\"\\MSSQL$PRD01:Buffer Manager\\Page life expectancy\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "unit",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "0d53dd2f9389445bafb468563f411bd0",
+                        "name": "MSSQL$PRD01:Buffer Manager\\Page lookups/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD01:Buffer Manager\\Page lookups/sec\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "7fe8284f953d417f90916c74d932df65",
+                        "name": "MSSQL$PRD01:Buffer Manager\\Page reads/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD01:Buffer Manager\\Page reads/sec\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "a78f3fff610e4617967e5fa4cf3d1ddc",
+                        "name": "MSSQL$PRD01:Buffer Manager\\Page writes/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD01:Buffer Manager\\Page writes/sec\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "d35ddea181774d34aeed34cf45738ba1",
+                        "name": "MSSQL$PRD01:Databases(tempdb)\\Percent Log Used",
+                        "key": "perf_counter[\"\\MSSQL$PRD01:Databases(tempdb)\\Percent Log Used\"]",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "4aca0af8a51d4add852fdab6f610f106",
+                        "name": "MSSQL$PRD01:Databases(_Total)\\Active Transactions",
+                        "key": "perf_counter[\"\\MSSQL$PRD01:Databases(_Total)\\Active Transactions\"]",
+                        "delay": "60s",
+                        "value_type": "FLOAT",
+                        "units": "unit",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "91fb460aac2b4eb1b203d09ca3506297",
+                        "name": "MSSQL$PRD01:Databases(_Total)\\Bulk Copy Rows/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD01:Databases(_Total)\\Bulk Copy Rows/sec\"]",
+                        "delay": "60s",
+                        "value_type": "FLOAT",
+                        "units": "unit",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "5b2c768d17274b49a86e558cabd8eee0",
+                        "name": "MSSQL$PRD01:Databases(_Total)\\Bulk Copy Throughput/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD01:Databases(_Total)\\Bulk Copy Throughput/sec\"]",
+                        "delay": "60s",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "5cff44aeff3a4fff83a6c942e3d9a159",
+                        "name": "MSSQL$PRD01:Databases(_Total)\\Log File(s) Size (KB)",
+                        "key": "perf_counter[\"\\MSSQL$PRD01:Databases(_Total)\\Log File(s) Size (KB)\"]",
+                        "delay": "60s",
+                        "value_type": "FLOAT",
+                        "units": "KB",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "5333da25f87941d186789a075aa1738b",
+                        "name": "MSSQL$PRD01:Databases(_Total)\\Transactions/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD01:Databases(_Total)\\Transactions/sec\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "unit",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "d4c3a3db9ee64a35b8ce9e200e7f2c28",
+                        "name": "MSSQL$PRD01:General Statistics\\Processes blocked",
+                        "key": "perf_counter[\"\\MSSQL$PRD01:General Statistics\\Processes blocked\"]",
+                        "delay": "30s",
+                        "value_type": "FLOAT",
+                        "units": "unit",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "ce4524d0ea86402b8a39fd1f3590ee89",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\MSSQL$PRD01:General Statistics\\Processes blocked\"])>=20",
+                                "name": "BLOCKS PRD01 - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "e8f86964d1ba449c9598e57629764ff4",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\MSSQL$PRD01:General Statistics\\Processes blocked\"])>=15",
+                                "name": "BLOCKS PRD01 - HIGH",
+                                "priority": "HIGH"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "706f589fa26149b2a1d9ddb2c0955ffc",
+                        "name": "MSSQL$PRD01:Memory Manager\\Free Memory (KB)",
+                        "key": "perf_counter[\"\\MSSQL$PRD01:Memory Manager\\Free Memory (KB)\"]",
+                        "delay": "5m",
+                        "value_type": "FLOAT",
+                        "units": "unit",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "f26d5d3e07ab4c429c453fdb44f17aa2",
+                        "name": "MSSQL$PRD01:SQL Statistics\\SQL Attention rate",
+                        "key": "perf_counter[\"\\MSSQL$PRD01:SQL Statistics\\SQL Attention rate\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "658543d443c943bc839bbd3bbf9d4594",
+                        "name": "MSSQL$PRD01:SQL Statistics\\SQL Compilations/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD01:SQL Statistics\\SQL Compilations/sec\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "0172d7b2efb44b0aae0a160455d7ff27",
+                        "name": "MSSQL$PRD01:SQL Statistics\\SQL Re-Compilations/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD01:SQL Statistics\\SQL Re-Compilations/sec\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "886d82d921ac44aca29013128398500d",
+                        "name": "MSSQL$PRD02:Buffer Manager\\Checkpoint pages/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD02:Buffer Manager\\Checkpoint pages/sec\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "af0e0b6ff296451da291e29bdceb0c34",
+                        "name": "MSSQL$PRD02:Buffer Manager\\Database pages",
+                        "key": "perf_counter[\"\\MSSQL$PRD02:Buffer Manager\\Database pages\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "bc39a14bba2f4b6b8d1dbedacb4b229f",
+                        "name": "MSSQL$PRD02:Buffer Manager\\Extension allocated pages",
+                        "key": "perf_counter[\"\\MSSQL$PRD02:Buffer Manager\\Extension allocated pages\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "87ed0676fc5a4f8cbd1c8974fa8db972",
+                        "name": "MSSQL$PRD02:Buffer Manager\\Extension free pages",
+                        "key": "perf_counter[\"\\MSSQL$PRD02:Buffer Manager\\Extension free pages\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "2468f3780f8a489ea8070ec92a0647e3",
+                        "name": "MSSQL$PRD02:Buffer Manager\\Page life expectancy",
+                        "key": "perf_counter[\"\\MSSQL$PRD02:Buffer Manager\\Page life expectancy\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "unit",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "16761b4c223642b49d51b03cbacde75b",
+                        "name": "MSSQL$PRD02:Buffer Manager\\Page lookups/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD02:Buffer Manager\\Page lookups/sec\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "9e7ad562f9564cba8d93b329cab472cd",
+                        "name": "MSSQL$PRD02:Buffer Manager\\Page reads/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD02:Buffer Manager\\Page reads/sec\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "eb5167930db9422a87c81f09999b73be",
+                        "name": "MSSQL$PRD02:Buffer Manager\\Page writes/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD02:Buffer Manager\\Page writes/sec\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "4a1b69d80bb4409bae98fb8833312aa6",
+                        "name": "MSSQL$PRD02:Databases(tempdb)\\Percent Log Used",
+                        "key": "perf_counter[\"\\MSSQL$PRD02:Databases(tempdb)\\Percent Log Used\"]",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "53cf937307e54b2b945766c73cb58647",
+                        "name": "MSSQL$PRD02:Databases(_Total)\\Active Transactions",
+                        "key": "perf_counter[\"\\MSSQL$PRD02:Databases(_Total)\\Active Transactions\"]",
+                        "delay": "60s",
+                        "value_type": "FLOAT",
+                        "units": "unit",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "9152d673ca224f6d9f516ff0fe437827",
+                        "name": "MSSQL$PRD02:Databases(_Total)\\Bulk Copy Throughput/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD02:Databases(_Total)\\Bulk Copy Throughput/sec\"]",
+                        "delay": "60s",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "eeb620b6d51c4660a79eb4a0b859de8c",
+                        "name": "MSSQL$PRD02:Databases(_Total)\\Transactions/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD02:Databases(_Total)\\Transactions/sec\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "unit",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "3223e123f7914a7fa6712debc82d4da0",
+                        "name": "MSSQL$PRD02:General Statistics\\Processes blocked",
+                        "key": "perf_counter[\"\\MSSQL$PRD02:General Statistics\\Processes blocked\"]",
+                        "delay": "60s",
+                        "value_type": "FLOAT",
+                        "units": "unit",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "b97e385a95754c238a81285e38d3dcf5",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\MSSQL$PRD02:General Statistics\\Processes blocked\"])>=20",
+                                "name": "BLOCKS PRD02 - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "fc503d047a024c11b092148f599a786c",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\MSSQL$PRD02:General Statistics\\Processes blocked\"])>=15",
+                                "name": "BLOCKS PRD02 - HIGH",
+                                "priority": "HIGH"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "14445d3adb4f4eb28f2d3e3ddef6b9c2",
+                        "name": "MSSQL$PRD02:Memory Manager\\Free Memory (KB)",
+                        "key": "perf_counter[\"\\MSSQL$PRD02:Memory Manager\\Free Memory (KB)\"]",
+                        "delay": "5m",
+                        "value_type": "FLOAT",
+                        "units": "unit",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "75603cea8b054ae7aa61b0e605dc5b23",
+                        "name": "MSSQL$PRD02:SQL Statistics\\SQL Compilations/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD02:SQL Statistics\\SQL Compilations/sec\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "4c2640b768964b06a93d7b6cbeb04457",
+                        "name": "MSSQL$PRD02:SQL Statistics\\SQL Re-Compilations/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD02:SQL Statistics\\SQL Re-Compilations/sec\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "546acea61c8548a0b12c36ab5fb592ba",
+                        "name": "MSSQL$PRD03:Buffer Manager\\Checkpoint pages/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD03:Buffer Manager\\Checkpoint pages/sec\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "bd59c204393a45f7804121575d65a1dd",
+                        "name": "MSSQL$PRD03:Buffer Manager\\Database pages",
+                        "key": "perf_counter[\"\\MSSQL$PRD03:Buffer Manager\\Database pages\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "d1a8917e48dc409395a70302067172cd",
+                        "name": "MSSQL$PRD03:Buffer Manager\\Extension allocated pages",
+                        "key": "perf_counter[\"\\MSSQL$PRD03:Buffer Manager\\Extension allocated pages\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "e5581582e06247f7aff28c0a522f5c86",
+                        "name": "MSSQL$PRD03:Buffer Manager\\Extension free pages",
+                        "key": "perf_counter[\"\\MSSQL$PRD03:Buffer Manager\\Extension free pages\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "5a15a40ae20e420a8777440183b05e96",
+                        "name": "MSSQL$PRD03:Buffer Manager\\Page life expectancy",
+                        "key": "perf_counter[\"\\MSSQL$PRD03:Buffer Manager\\Page life expectancy\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "unit",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "fc8ec9de84514db19565e48089381e45",
+                        "name": "MSSQL$PRD03:Buffer Manager\\Page lookups/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD03:Buffer Manager\\Page lookups/sec\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "165a1a9400f84b9a9b3eaf2cccbd167c",
+                        "name": "MSSQL$PRD03:Buffer Manager\\Page reads/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD03:Buffer Manager\\Page reads/sec\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "3b67215a538f4f5b9e9d653f24413a6f",
+                        "name": "MSSQL$PRD03:Buffer Manager\\Page writes/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD03:Buffer Manager\\Page writes/sec\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "112b00fb0dd84a18b419b4928c0f98e1",
+                        "name": "MSSQL$PRD03:Databases(tempdb)\\Percent Log Used",
+                        "key": "perf_counter[\"\\MSSQL$PRD03:Databases(tempdb)\\Percent Log Used\"]",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "d6bb6988e8fd4704904e60182b5c1e81",
+                        "name": "MSSQL$PRD03:Databases(_Total)\\Active Transactions",
+                        "key": "perf_counter[\"\\MSSQL$PRD03:Databases(_Total)\\Active Transactions\"]",
+                        "delay": "60s",
+                        "value_type": "FLOAT",
+                        "units": "unit",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "6ee5b90c82704b9982ab28f327141a38",
+                        "name": "MSSQL$PRD03:Databases(_Total)\\Bulk Copy Throughput/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD03:Databases(_Total)\\Bulk Copy Throughput/sec\"]",
+                        "delay": "60s",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "5370b1769b894d2db1526bb6fe3f8ca3",
+                        "name": "MSSQL$PRD03:Databases(_Total)\\Transactions/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD03:Databases(_Total)\\Transactions/sec\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "unit",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "3f202f46a53f4338a58df4e5e9e31f57",
+                        "name": "MSSQL$PRD03:General Statistics\\Processes blocked",
+                        "key": "perf_counter[\"\\MSSQL$PRD03:General Statistics\\Processes blocked\"]",
+                        "delay": "60s",
+                        "value_type": "FLOAT",
+                        "units": "unit",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "29de186340154d8e8dfa1f4b86701bf5",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\MSSQL$PRD03:General Statistics\\Processes blocked\"])>=20",
+                                "name": "BLOCKS PRD03 - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "1c4b4fed0f67437fab05b6e79025989d",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\MSSQL$PRD03:General Statistics\\Processes blocked\"])>=15",
+                                "name": "BLOCKS PRD03 - HIGH",
+                                "priority": "HIGH"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "c1bec38fb6ff4308b37722f75880d561",
+                        "name": "MSSQL$PRD03:Memory Manager\\Free Memory (KB)",
+                        "key": "perf_counter[\"\\MSSQL$PRD03:Memory Manager\\Free Memory (KB)\"]",
+                        "delay": "5m",
+                        "value_type": "FLOAT",
+                        "units": "unit",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "01654e2639e848f2b068c985aba4da55",
+                        "name": "MSSQL$PRD03:SQL Statistics\\SQL Compilations/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD03:SQL Statistics\\SQL Compilations/sec\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "e5ab13e395d749a0a076c8acde7dc739",
+                        "name": "MSSQL$PRD03:SQL Statistics\\SQL Compilations/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD03:SQL Statistics\\SQL Re-Compilations/sec\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "15ed5160f739405bb6118fa00557223b",
+                        "name": "MSSQL$PRD:Buffer Manager\\Buffer cache hit ratio",
+                        "key": "perf_counter[\"\\MSSQL$PRD:Buffer Manager\\Buffer cache hit ratio\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "f0e063a42e444c8cb10f1c18d5603615",
+                        "name": "MSSQL$PRD:Buffer Manager\\Checkpoint pages/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD:Buffer Manager\\Checkpoint pages/sec\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "802547e9daae44b59b97e2c0c6937ea9",
+                        "name": "MSSQL$PRD:Buffer Manager\\Database pages",
+                        "key": "perf_counter[\"\\MSSQL$PRD:Buffer Manager\\Database pages\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "315c8d941a6d4009a68b273e0c887865",
+                        "name": "MSSQL$PRD:Buffer Manager\\Extension allocated pages",
+                        "key": "perf_counter[\"\\MSSQL$PRD:Buffer Manager\\Extension allocated pages\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "f12614128b2641e1913301b1cdfd061d",
+                        "name": "MSSQL$PRD:Buffer Manager\\Extension free pages",
+                        "key": "perf_counter[\"\\MSSQL$PRD:Buffer Manager\\Extension free pages\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "2a15a8ba62c84eebaecfc335cd96900e",
+                        "name": "MSSQL$PRD:Buffer Manager\\Lazy writes/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD:Buffer Manager\\Lazy writes/sec\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "2e355d9b17324c0f80b349eba5c02897",
+                        "name": "MSSQL$PRD:Buffer Manager\\Page life expectancy",
+                        "key": "perf_counter[\"\\MSSQL$PRD:Buffer Manager\\Page life expectancy\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "unit",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "39c565f09d3d48e7bb8bc9e5837e5fc0",
+                        "name": "MSSQL$PRD:Buffer Manager\\Page lookups/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD:Buffer Manager\\Page lookups/sec\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "44482e7cc9c4406c8b4711773e0329ba",
+                        "name": "MSSQL$PRD:Buffer Manager\\Page reads/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD:Buffer Manager\\Page reads/sec\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "ec38a4b2b6e444e6a66bcb7c7039d08b",
+                        "name": "MSSQL$PRD:Buffer Manager\\Page writes/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD:Buffer Manager\\Page writes/sec\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "970a219589ae46dab754be1b62a36ba7",
+                        "name": "MSSQL$PRD:Databases(tempdb)\\Percent Log Used",
+                        "key": "perf_counter[\"\\MSSQL$PRD:Databases(tempdb)\\Percent Log Used\"]",
+                        "units": "%",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "1c842946f8a54fec82e0ce730e45602a",
+                        "name": "MSSQL$PRD:Databases(_Total)\\Active Transactions",
+                        "key": "perf_counter[\"\\MSSQL$PRD:Databases(_Total)\\Active Transactions\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "units": "unit",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "c521eb19b27d4029bc0acd516c49667c",
+                        "name": "MSSQL$PRD:Databases(_Total)\\Bulk Copy Rows/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD:Databases(_Total)\\Bulk Copy Rows/sec\"]",
+                        "delay": "60s",
+                        "value_type": "FLOAT",
+                        "units": "s",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "343d15691b8042518d77da5255d25b89",
+                        "name": "MSSQL$PRD:Databases(_Total)\\Bulk Copy Throughput/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD:Databases(_Total)\\Bulk Copy Throughput/sec\"]",
+                        "delay": "60s",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "f363bd0a444f41ff83528aba62374492",
+                        "name": "MSSQL$PRD:Databases(_Total)\\Log File(s) Size (KB)",
+                        "key": "perf_counter[\"\\MSSQL$PRD:Databases(_Total)\\Log File(s) Size (KB)\"]",
+                        "delay": "60s",
+                        "value_type": "FLOAT",
+                        "units": "KB",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "eb934edcfb7c4f828485b012a81e0557",
+                        "name": "MSSQL$PRD:Databases(_Total)\\Transactions/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD:Databases(_Total)\\Transactions/sec\"]",
+                        "delay": "60s",
+                        "value_type": "FLOAT",
+                        "units": "unit",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "151bc97f4b87443b8fe66e4e032ab12b",
+                        "name": "MSSQL$PRD:General Statistics\\Processes blocked",
+                        "key": "perf_counter[\"\\MSSQL$PRD:General Statistics\\Processes blocked\"]",
+                        "delay": "60s",
+                        "value_type": "FLOAT",
+                        "units": "unit",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "44455ef4729d4d3c94253d95326b0aa5",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\MSSQL$PRD:General Statistics\\Processes blocked\"])>=20",
+                                "name": "BLOCKS PRD - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "21ac743c85744219a5ed8020e7231fd8",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\MSSQL$PRD:General Statistics\\Processes blocked\"])>=15",
+                                "name": "BLOCKS PRD - HIGH",
+                                "priority": "HIGH"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "04c4404546624b0ab80494a8234ee88b",
+                        "name": "MSSQL$PRD:Memory Manager\\Free Memory (KB)",
+                        "key": "perf_counter[\"\\MSSQL$PRD:Memory Manager\\Free Memory (KB)\"]",
+                        "delay": "5m",
+                        "value_type": "FLOAT",
+                        "units": "unit",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "4ba2c6a1a0c74b4cb76ee0579584fa1a",
+                        "name": "MSSQL$PRD:SQL Statistics\\SQL Attention rate",
+                        "key": "perf_counter[\"\\MSSQL$PRD:SQL Statistics\\SQL Attention rate\"]",
+                        "delay": "3m",
+                        "value_type": "FLOAT",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "edcac98dd15b4501b0d75e9c45a39cbc",
+                        "name": "MSSQL$PRD:SQL Statistics\\SQL Compilations/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD:SQL Statistics\\SQL Compilations/sec\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "9166052e3dc745fe9299f5026cb8e0e4",
+                        "name": "MSSQL$PRD:SQL Statistics\\SQL Re-Compilations/sec",
+                        "key": "perf_counter[\"\\MSSQL$PRD:SQL Statistics\\SQL Re-Compilations/sec\"]",
+                        "delay": "120s",
+                        "value_type": "FLOAT",
+                        "units": "sec",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "f70c12293add4eeab6226562b0bb8027",
+                        "name": "CPU - KERNEL TIME",
+                        "key": "perf_counter[\"\\Processor Information(_Total)\\% Privileged Time\"]",
+                        "delay": "20s",
+                        "value_type": "FLOAT",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Processor"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "bf4eeb59e754446fa94c7e4f7dcfb6ee",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\Processor Information(_Total)\\% Privileged Time\"])>50",
+                                "name": "KERNEL TIME - AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "80515288bf7c4b8aaf9184b4cd3ad909",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\Processor Information(_Total)\\% Privileged Time\"])>70",
+                                "name": "KERNEL TIME - DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "5a16e6c41fef4d51aea3bc820dd32791",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\Processor Information(_Total)\\% Privileged Time\"])>60",
+                                "name": "KERNEL TIME - HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "d5b0cc2f925147b8b731ffc3d7bf0a7b",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\Processor Information(_Total)\\% Privileged Time\"])>40",
+                                "name": "KERNEL TIME - WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "33e5841b6c3f4c5892cd84c3236e257c",
+                        "name": "CPU - PROCESSOR TIME",
+                        "key": "perf_counter[\"\\Processor Information(_Total)\\% Processor Time\"]",
+                        "delay": "20s",
+                        "value_type": "FLOAT",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Processor"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "f55fee28ddb548b6a7519589a1fe7612",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\Processor Information(_Total)\\% Processor Time\"])>70",
+                                "name": "CPU AVERAGE",
+                                "priority": "AVERAGE"
+                            },
+                            {
+                                "uuid": "ddd013c87d904ebfa8679cd6c176bfbd",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\Processor Information(_Total)\\% Processor Time\"])>98",
+                                "name": "CPU DISASTER",
+                                "priority": "DISASTER"
+                            },
+                            {
+                                "uuid": "d0df05fbc61e441ab78452f9707cfcf4",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\Processor Information(_Total)\\% Processor Time\"])>95",
+                                "name": "CPU HIGH",
+                                "priority": "HIGH"
+                            },
+                            {
+                                "uuid": "db875a41bd1548cdabfce2b7ef01eb3d",
+                                "expression": "last(/BANCO DE DADOS/perf_counter[\"\\Processor Information(_Total)\\% Processor Time\"])>85",
+                                "name": "CPU WARNING",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "712f28385e334a16a80d63f8af9f8969",
+                        "name": "SQL SERVER PRD - ONLINE",
+                        "key": "SQLSERVER_PRD",
+                        "delay": "30s",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "25929b079e4742809e1d1bc12c825ad4",
+                                "expression": "last(/BANCO DE DADOS/SQLSERVER_PRD)=0",
+                                "name": "SERVI\u00c7O SQL SERVER PRD",
+                                "priority": "DISASTER"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "b6e329384f664898b08d32df1fa57772",
+                        "name": "SQL SERVER PRD01 - ONLINE",
+                        "key": "SQLSERVER_PRD01",
+                        "delay": "30s",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "eb2427cdfbad43c8b48ffc4142942d41",
+                                "expression": "last(/BANCO DE DADOS/SQLSERVER_PRD01)=0",
+                                "name": "SERVI\u00c7O SQL SERVER PRD01",
+                                "priority": "DISASTER"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "0c03a697923746f984f60fd2c60c14e7",
+                        "name": "SQL SERVER PRD02 - ONLINE",
+                        "key": "SQLSERVER_PRD02",
+                        "delay": "30s",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "d13d668b679847399e67f3db2449a53d",
+                                "expression": "last(/BANCO DE DADOS/SQLSERVER_PRD02)=0",
+                                "name": "SERVI\u00c7O SQL SERVER PRD02",
+                                "priority": "DISASTER"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "384c41f762b54e439e9444d67fc47c21",
+                        "name": "SQL SERVER PRD03 - ONLINE",
+                        "key": "SQLSERVER_PRD03",
+                        "delay": "30s",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "01e8c07ab4a843ccb7d264aa77000068",
+                                "expression": "last(/BANCO DE DADOS/SQLSERVER_PRD03)=0",
+                                "name": "SERVI\u00c7O SQL SERVER PRD03",
+                                "priority": "DISASTER"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "1695e8a7c57141b5990c96c853d3e1ad",
+                        "name": "TransactionLog Monitor",
+                        "key": "TLOGMONITOR90",
+                        "delay": "60s",
+                        "value_type": "FLOAT",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "3de503049e684ceb9cdd659af7f7499c",
+                                "expression": "last(/BANCO DE DADOS/TLOGMONITOR90)=1",
+                                "name": "ALERTA TRANSACTION LOG (TEMPDB) > 90%",
+                                "priority": "HIGH"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "2b9d2fb8e9b74c7d878ad3dcb3d6b765",
+                        "name": "Monitoramento Usuarios Orfaos (PRD)",
+                        "key": "USER_ORFAOS_PRD",
+                        "delay": "60s",
+                        "value_type": "FLOAT",
+                        "units": "qtd",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "27eff8323fd449f2a3d9e843d0fdc820",
+                                "expression": "last(/BANCO DE DADOS/USER_ORFAOS_PRD)>0",
+                                "name": "ALERTAS USUARIOS ORFAOS (PRD)",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "09822fddf5884d4bbaea7b4792a8db7c",
+                        "name": "Monitoramento Usuarios Orfaos (PRD01)",
+                        "key": "USER_ORFAOS_PRD01",
+                        "delay": "60s",
+                        "value_type": "FLOAT",
+                        "units": "qtd",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "06a90e87684c41ac834a202238605797",
+                                "expression": "last(/BANCO DE DADOS/USER_ORFAOS_PRD01)>0",
+                                "name": "ALERTAS USUARIOS ORFAOS (PRD01)",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "a1ebec012df14c699a43f3eae900e249",
+                        "name": "Monitoramento Usuarios Orfaos (PRD02)",
+                        "key": "USER_ORFAOS_PRD02",
+                        "delay": "60s",
+                        "value_type": "FLOAT",
+                        "units": "qtd",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "c0918a16e0374e8c8cdfaf89d5590205",
+                                "expression": "last(/BANCO DE DADOS/USER_ORFAOS_PRD02)>0",
+                                "name": "ALERTAS USUARIOS ORFAOS (PRD02)",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "e23740e72c9b432a9166f666c868e181",
+                        "name": "Monitoramento Usuarios Orfaos (PRD03)",
+                        "key": "USER_ORFAOS_PRD03",
+                        "delay": "60s",
+                        "value_type": "FLOAT",
+                        "units": "qtd",
+                        "tags": [
+                            {
+                                "tag": "Application",
+                                "value": "Databases"
+                            }
+                        ],
+                        "triggers": [
+                            {
+                                "uuid": "d6ea463fca90404db622b375b6fc5b75",
+                                "expression": "last(/BANCO DE DADOS/USER_ORFAOS_PRD03)>0",
+                                "name": "ALERTAS USUARIOS ORFAOS (PRD03)",
+                                "priority": "WARNING"
+                            }
+                        ]
+                    }
+                ],
+                "discovery_rules": [
+                    {
+                        "uuid": "3420f49ea5bf4630bf712c0107765c87",
+                        "name": "HIGH-DTB Job Discovery",
+                        "key": "sql.mgmt[HIGH-DTB]",
+                        "item_prototypes": [
+                            {
+                                "uuid": "40e3c922e9e54d3188d125b143d58c56",
+                                "name": "DTB SQLJob {#JONNAME}",
+                                "type": "TRAP",
+                                "key": "sqljob.status[HIGH-DTB,{#JOBNAME}]",
+                                "delay": "0",
+                                "tags": [
+                                    {
+                                        "tag": "Application",
+                                        "value": "Databases"
+                                    }
+                                ],
+                                "trigger_prototypes": [
+                                    {
+                                        "uuid": "f4e0e7d8104f4f248d5c2f6574a93b69",
+                                        "expression": "max(/BANCO DE DADOS/sqljob.status[HIGH-DTB,{#JOBNAME}],10m)=0",
+                                        "name": "DTB Jenkins job faulire {#JOBNAME}"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "uuid": "9282d5022e0d438c8a5103f8b72a3408",
+                        "name": "Discovery Couter",
+                        "key": "vfs.fs.discovery",
+                        "delay": "3600",
+                        "filter": {
+                            "conditions": [
+                                {
+                                    "macro": "{#FSTYPE}",
+                                    "value": "@FILE SYSTEMS FOR DISCOVERY",
+                                    "formulaid": "A"
+                                }
+                            ]
+                        },
+                        "item_prototypes": [
+                            {
+                                "uuid": "f8b23d10d7124d0792ea1b339fcaf0b1",
+                                "name": "Free disk space on $1 (percentage)",
+                                "key": "vfs.fs.size[{#FSNAME},pfree]",
+                                "delay": "60s",
+                                "history": "7d",
+                                "value_type": "FLOAT",
+                                "tags": [
+                                    {
+                                        "tag": "Application",
+                                        "value": "Application_{FSNAME}"
+                                    },
+                                    {
+                                        "tag": "Application",
+                                        "value": "Filesystems"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "dashboards": [
+                    {
+                        "uuid": "df7fa9f7eacd4086a7cf4268f165b960",
+                        "name": "teste",
+                        "pages": [
+                            {
+                                "widgets": [
+                                    {
+                                        "type": "GRAPH_CLASSIC",
+                                        "width": "24",
+                                        "height": "5",
+                                        "fields": [
+                                            {
+                                                "type": "GRAPH",
+                                                "name": "graphid",
+                                                "value": {
+                                                    "host": "BANCO DE DADOS",
+                                                    "name": "DISCO C FREE SPACE"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "GRAPH_CLASSIC",
+                                        "y": "5",
+                                        "width": "24",
+                                        "height": "5",
+                                        "fields": [
+                                            {
+                                                "type": "GRAPH",
+                                                "name": "graphid",
+                                                "value": {
+                                                    "host": "BANCO DE DADOS",
+                                                    "name": "DISCO O FREE SPACE"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "GRAPH_CLASSIC",
+                                        "y": "10",
+                                        "width": "24",
+                                        "height": "5",
+                                        "fields": [
+                                            {
+                                                "type": "GRAPH",
+                                                "name": "graphid",
+                                                "value": {
+                                                    "host": "BANCO DE DADOS",
+                                                    "name": "DISCO N FREE SPACE"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "graphs": [
+            {
+                "uuid": "1d2b286342204e07a7d9058992b2960d",
+                "name": "CPU",
+                "width": "300",
+                "graph_items": [
+                    {
+                        "color": "199C0D",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\Processor Information(_Total)\\% Processor Time\"]"
+                        }
+                    },
+                    {
+                        "sortorder": "1",
+                        "color": "F63100",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\Processor Information(_Total)\\% Privileged Time\"]"
+                        }
+                    }
+                ]
+            },
+            {
+                "uuid": "30bc9026456a4772863b7013cf91d00b",
+                "name": "DISCO C FREE SPACE",
+                "graph_items": [
+                    {
+                        "color": "199C0D",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(C:)\\% Free Space\"]"
+                        }
+                    }
+                ]
+            },
+            {
+                "uuid": "6e7a7c14c3264c8a9595f8baff4e45e0",
+                "name": "DISCO M FREE SPACE",
+                "graph_items": [
+                    {
+                        "color": "199C0D",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(M:)\\% Free Space\"]"
+                        }
+                    },
+                    {
+                        "sortorder": "1",
+                        "color": "F63100",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(M:\\BufferPool)\\% Free Space\"]"
+                        }
+                    },
+                    {
+                        "sortorder": "2",
+                        "color": "2774A4",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(M:\\FileStream)\\% Free Space\"]"
+                        }
+                    },
+                    {
+                        "sortorder": "3",
+                        "color": "F7941D",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(M:\\SQLDATA_1)\\% Free Space\"]"
+                        }
+                    },
+                    {
+                        "sortorder": "4",
+                        "color": "FC6EA3",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(M:\\SQLLOG_1)\\% Free Space\"]"
+                        }
+                    },
+                    {
+                        "sortorder": "5",
+                        "color": "6C59DC",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(M:\\SQLSYS)\\% Free Space\"]"
+                        }
+                    },
+                    {
+                        "sortorder": "6",
+                        "color": "C7A72D",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(M:\\TEMPDB)\\% Free Space\"]"
+                        }
+                    },
+                    {
+                        "sortorder": "7",
+                        "color": "BA2A5D",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(M:)\\% Free Space\"]"
+                        }
+                    }
+                ]
+            },
+            {
+                "uuid": "33590df90e92428a867562d285c54715",
+                "name": "DISCO N FREE SPACE",
+                "graph_items": [
+                    {
+                        "color": "199C0D",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(N:)\\% Free Space\"]"
+                        }
+                    },
+                    {
+                        "sortorder": "1",
+                        "color": "F63100",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(N:\\BufferPool)\\% Free Space\"]"
+                        }
+                    },
+                    {
+                        "sortorder": "2",
+                        "color": "2774A4",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(N:\\FileStream)\\% Free Space\"]"
+                        }
+                    },
+                    {
+                        "sortorder": "3",
+                        "color": "F7941D",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(N:\\SQLDATA_1)\\% Free Space\"]"
+                        }
+                    },
+                    {
+                        "sortorder": "4",
+                        "color": "FC6EA3",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(N:\\SQLLOG_1)\\% Free Space\"]"
+                        }
+                    },
+                    {
+                        "sortorder": "5",
+                        "color": "6C59DC",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(N:\\SQLSYS)\\% Free Space\"]"
+                        }
+                    },
+                    {
+                        "sortorder": "6",
+                        "color": "C7A72D",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(N:\\TEMPDB)\\% Free Space\"]"
+                        }
+                    }
+                ]
+            },
+            {
+                "uuid": "ec25403c09204698a8f7d60bb58abeea",
+                "name": "DISCO O FREE SPACE",
+                "graph_items": [
+                    {
+                        "color": "199C0D",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(O:)\\% Free Space\"]"
+                        }
+                    },
+                    {
+                        "sortorder": "1",
+                        "color": "F63100",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(O:\\BufferPool)\\% Free Space\"]"
+                        }
+                    },
+                    {
+                        "sortorder": "2",
+                        "color": "2774A4",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(O:\\FileStream)\\% Free Space\"]"
+                        }
+                    },
+                    {
+                        "sortorder": "3",
+                        "color": "F7941D",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(O:\\SQLDATA_1)\\% Free Space\"]"
+                        }
+                    },
+                    {
+                        "sortorder": "4",
+                        "color": "FC6EA3",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(O:\\SQLLOG_1)\\% Free Space\"]"
+                        }
+                    },
+                    {
+                        "sortorder": "5",
+                        "color": "6C59DC",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(O:\\SQLSYS)\\% Free Space\"]"
+                        }
+                    },
+                    {
+                        "sortorder": "6",
+                        "color": "C7A72D",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(O:\\TEMPDB)\\% Free Space\"]"
+                        }
+                    }
+                ]
+            },
+            {
+                "uuid": "58c2a2590f5b47b1ae2af2571880dcbc",
+                "name": "DISCO P FREE SPACE",
+                "graph_items": [
+                    {
+                        "color": "199C0D",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(P:)\\% Free Space\"]"
+                        }
+                    },
+                    {
+                        "sortorder": "1",
+                        "color": "F63100",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(P:\\BufferPool)\\% Free Space\"]"
+                        }
+                    },
+                    {
+                        "sortorder": "2",
+                        "color": "2774A4",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(P:\\FileStream)\\% Free Space\"]"
+                        }
+                    },
+                    {
+                        "sortorder": "3",
+                        "color": "F7941D",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(P:\\SQLDATA_1)\\% Free Space\"]"
+                        }
+                    },
+                    {
+                        "sortorder": "4",
+                        "color": "FC6EA3",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(P:\\SQLLOG_1)\\% Free Space\"]"
+                        }
+                    },
+                    {
+                        "sortorder": "5",
+                        "color": "6C59DC",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(P:\\SQLSYS)\\% Free Space\"]"
+                        }
+                    },
+                    {
+                        "sortorder": "6",
+                        "color": "C7A72D",
+                        "item": {
+                            "host": "BANCO DE DADOS",
+                            "key": "perf_counter[\"\\LogicalDisk(P:\\TEMPDB)\\% Free Space\"]"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
