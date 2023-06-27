@@ -1,0 +1,22 @@
+-- ===============================================================
+--      expurgo base histórica
+-- ===============================================================
+
+
+-- data de corte (fica na base a partir desta data)
+declare @data_corte smalldatetime
+set @data_corte = '2015-01-01'
+
+-- contador de execuções  
+declare @contador int
+set @contador = 0 
+
+-- laço com a ação desejada
+deleteMore:
+DELETE TOP(10000)  FROM SPDL_Assinaturas_Movimentacao WHERE DtEdicaoReal < @data_corte 
+set @contador = @contador + 1
+print 'rodada ' + cast(@contador as varchar(10)) + '- 10000 registros excluídos'
+
+IF EXISTS(SELECT top 1 'x' FROM SPDL_Assinaturas_Movimentacao WHERE DtEdicaoReal < @data_corte )
+    goto deleteMore
+-- fim
