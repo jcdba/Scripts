@@ -1,0 +1,12 @@
+execute sp_msforeachdb '
+USE [?]
+if db_name() in (''master'')
+begin
+DECLARE @exitcode int
+DECLARE @sqlerrorcode int
+EXECUTE master..sqlbackup ''-SQL "BACKUP DATABASES [?] TO DISK = ''''F:\COMPLETO\<database>\<AUTO>.bak'''' WITH ERASEFILES_PRIMARY = 2, CHECKSUM, DISKRETRYINTERVAL = 30, DISKRETRYCOUNT = 10, COMPRESSION = 3, THREADCOUNT = 32, VERIFY"'', @exitcode OUT, @sqlerrorcode OUT
+IF (@exitcode >= 500) OR (@sqlerrorcode <> 0)
+BEGIN
+RAISERROR (''SQL Backup failed with exit code: %d  SQL error code: %d'', 16, 1, @exitcode, @sqlerrorcode)
+END
+END'
