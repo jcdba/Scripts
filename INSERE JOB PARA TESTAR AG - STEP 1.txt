@@ -1,0 +1,66 @@
+USE msdb;
+GO
+
+DECLARE @job_name sysname;
+DECLARE @command_to_add NVARCHAR(MAX);
+--@COMMAND_TO_ADD = INFORMAR O COMANDO A SER ADICIONADO NO STEP
+SET @command_to_add = N'DECLARE @role_desc varchar(20) 
+IF(HAS_PERMS_BY_NAME (''sys.dm_hadr_availability_replica_states'', ''OBJECT'', ''execute'') = 1) 
+
+BEGIN -- if this is not an AG server then return ''PRIMARY''
+	IF NOT EXISTS
+	(SELECT 1
+	 FROM sys.DATABASES d
+	 INNER JOIN sys.dm_hadr_availability_replica_states hars ON d.replica_id = hars.replica_id)
+
+SELECT @role_desc = ''PRIMARY'' 
+	ELSE 
+IF EXISTS
+  (SELECT hars.role_desc
+   FROM sys.DATABASES d
+   INNER JOIN sys.dm_hadr_availability_replica_states hars ON d.replica_id = hars.replica_id 
+   WHERE hars.role_desc = ''PRIMARY'' )
+SELECT @role_desc = ''PRIMARY'' ELSE
+SELECT @role_desc = ''SECONDARY'' END ELSE
+SELECT @role_desc = ''PRIMARY''
+
+IF @role_desc = ''PRIMARY'' 
+BEGIN PRINT ''AG OK'' 
+END 
+ELSE 
+RAISERROR (15600, -1, -1, ''mysp_CreateCustomer'')';
+
+-- CURSOR PARA MONTAR LISTA DE JOBS
+DECLARE job_cursor CURSOR FOR
+SELECT name
+FROM msdb.dbo.sysjobs
+WHERE name = 'BONESIDE - Load Table Size'; --FILTRO PELO NOME DO JOB
+-- FILTROS OPCIONAIS
+
+OPEN job_cursor;
+
+FETCH NEXT FROM job_cursor INTO @job_name;
+
+select @job_name
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+
+    -- ADICIONA NOVO PASSO COMO @step_id = 1 E MOVE OS EXISTENTE PARA BAIXO
+    EXEC msdb.dbo.sp_add_jobstep
+        @job_name = @job_name,
+        @step_id = 1, -- DEIXAR EXPLICITO PARA SER O 1º STEP
+        @step_name = N'Boneside - Teste AG',
+        @subsystem = N'TSQL', -- DEFINIR SCRIPT COMO 'TSQL'
+        @command = @command_to_add,
+        @database_name = N'master', -- DEFINE O BANCO DEFAULT PRA RODAR
+        @on_success_action = 3, -- 3 = IR PARA O PRÓXIMO PASSO (que será o antigo Step 1)
+        @on_fail_action = 2; -- 2 = EENCERRAR COM FALHA (ação padrão, ajuste se necessário)
+
+    FETCH NEXT FROM job_cursor INTO @job_name;
+END;
+
+CLOSE job_cursor;
+DEALLOCATE job_cursor;
+
+PRINT 'Processo concluído.';
