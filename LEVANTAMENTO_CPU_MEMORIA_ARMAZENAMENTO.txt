@@ -1,0 +1,17 @@
+
+SELECT 
+      database_name = DB_NAME(database_id)
+    , log_size_gb = CAST(SUM(CASE WHEN type_desc = 'LOG' THEN size END) * 8. / 1024 AS DECIMAL(18,2))/1024
+    , row_size_gb = CAST(SUM(CASE WHEN type_desc = 'ROWS' THEN size END) * 8. / 1024 AS DECIMAL(18,2))/1024
+    , total_size_gb = CAST(SUM(size) * 8. / 1024 AS DECIMAL(18,2))/1024
+	into #ARMAZENAMENTO
+FROM sys.master_files WITH(NOWAIT)
+-- where database_id = DB_ID('Nomedoseubanco') -- Caso queira filtrar um DB específico
+GROUP BY database_id
+
+
+select @@SERVERNAME AS [SERVER], (select CAST(sum(total_size_gb) AS INT)  from #ARMAZENAMENTO) AS ARMAZENAMENTO_GB, 
+(SELECT cpu_count AS [CPUs Lógicas] FROM sys.dm_os_sys_info) as CPU_SO, (SELECT ((total_physical_memory_kb / 1024)/1024)+1 FROM sys.dm_os_sys_memory) as MEMORIA_SO
+
+DROP TABLE #ARMAZENAMENTO
+
