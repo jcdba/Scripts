@@ -1,0 +1,29 @@
+WITH LastBackups AS (
+    SELECT 
+        bs.database_name,
+        bs.type,
+        bs.backup_finish_date,
+        bmf.physical_device_name,
+        ROW_NUMBER() OVER (
+            PARTITION BY bs.database_name, bs.type 
+            ORDER BY bs.backup_finish_date DESC
+        ) AS rn
+    FROM msdb.dbo.backupset bs
+    INNER JOIN msdb.dbo.backupmediafamily bmf
+        ON bs.media_set_id = bmf.media_set_id
+    WHERE bs.type IN ('D', 'I', 'L')
+)
+SELECT 
+    database_name,
+    MAX(CASE WHEN type = 'D' THEN backup_finish_date END) AS last_full_date,
+    MAX(CASE WHEN type = 'D' THEN physical_device_name END) AS last_full_path,
+
+    MAX(CASE WHEN type = 'I' THEN backup_finish_date END) AS last_diff_date,
+    MAX(CASE WHEN type = 'I' THEN physical_device_name END) AS last_diff_path,
+
+    MAX(CASE WHEN type = 'L' THEN backup_finish_date END) AS last_log_date,
+    MAX(CASE WHEN type = 'L' THEN physical_device_name END) AS last_log_path
+FROM LastBackups
+WHERE rn = 1
+GROUP BY database_name
+ORDER BY database_name;
